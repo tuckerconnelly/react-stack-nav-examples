@@ -31,7 +31,7 @@ class Layout extends Component {
       <View style={styles.base}>
         <AppBar
           title={title}
-          onLeftIconPress={this._openMenu} />
+          onNavIconPress={this._openMenu} />
         <NavigationDrawer
           open={this.state.menuOpen}
           onOverlayPress={this._closeMenu}>

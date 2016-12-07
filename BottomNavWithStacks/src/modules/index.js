@@ -2,11 +2,13 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { View, Platform } from 'react-native-universal'
 import {
+  AppBar,
   BottomNavigation,
+  BottomNavigationIcon,
 
   Colors,
 } from 'carbon-ui'
-import { pushState } from 'react-stack-nav'
+import { pushState, back } from 'react-stack-nav'
 
 import Index from './Index/index'
 
@@ -22,12 +24,32 @@ class Layout extends Component {
   }
 
   render() {
-    const { title, url, children } = this.props
+    const { title, url, children, back } = this.props
 
     return (
       <View style={styles.base}>
+        <AppBar
+          navIcon={url.split('/').length > 2 ? 'arrow_back' : null}
+          title={title}
+          onNavIconPress={() => back()}/>
         <Index />
-        <BottomNavigation />
+        <BottomNavigation>
+          <BottomNavigationIcon
+            name="history"
+            text="Recents"
+            active={/^\/recents/.test(url)}
+            onPress={() => this._navigate('/recents', 'Recents')} />
+          <BottomNavigationIcon
+            name="favorite"
+            text="Favorites"
+            active={/^\/favorites/.test(url)}
+            onPress={() => this._navigate('/favorites', 'Favorites')} />
+          <BottomNavigationIcon
+            name="location_on"
+            text="Nearby"
+            active={/^\/nearby/.test(url)}
+            onPress={() => this._navigate('/nearby', 'Nearby')} />
+        </BottomNavigation>
         {children}
       </View>
     )
@@ -49,7 +71,7 @@ const mapStateToProps = ({ navigation }) => ({
   title: navigation.history[navigation.index].title,
 })
 
-const mapDispatchToProps = { pushState }
+const mapDispatchToProps = { pushState, back }
 
 export default
   connect(mapStateToProps, mapDispatchToProps)(

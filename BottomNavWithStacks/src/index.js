@@ -4,7 +4,12 @@ import { Provider } from 'react-redux'
 import Layout from './modules'
 import createStore from './redux'
 
-const store = createStore()
+const store = createStore({
+  navigation: {
+    index: 0,
+    history: [{ stateObj: {}, title: 'Favorites', url: '/favorites' }]
+  },
+})
 
 class App extends Component {
   static propTypes = {
