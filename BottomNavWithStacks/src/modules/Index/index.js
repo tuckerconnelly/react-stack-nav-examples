@@ -16,7 +16,6 @@ const VALID_FRAGMENTS = [
 
 class Index extends Component {
   componentWillMount() { this._indexRedirect() }
-  componentWillUpdate() { this._indexRedirect() }
   
   _indexRedirect() {
     if (this.props.routeFragment === '') {

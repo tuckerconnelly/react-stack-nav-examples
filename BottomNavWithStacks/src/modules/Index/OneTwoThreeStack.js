@@ -10,7 +10,10 @@ import RouteSlide from '../common/RouteSlide'
 class OneTwoThreeStackComponent extends Component {
   state = { nextStackExists: false, nextStackActive: false }
   
-  componentWillReceiveProps(next) {    
+  componentWillMount() { this._handleReceiveProps(this.props) }
+  componentWillReceiveProps(next) { this._handleReceiveProps(next) }
+  
+  _handleReceiveProps(next) {    
     if (typeof next.routeFragment === 'string') {
       this.setState({ nextStackExists: true })
     }
