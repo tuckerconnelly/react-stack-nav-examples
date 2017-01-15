@@ -23,15 +23,17 @@ class Layout extends Component {
     this.props.pushState(0, title, to)
   }
 
+  _back = () => this.props.back()
+
   render() {
-    const { title, url, children, back } = this.props
+    const { title, url, children } = this.props
 
     return (
       <View style={styles.base}>
         <AppBar
           navIcon={url.split('/').length > 2 ? 'arrow_back' : null}
           title={title}
-          onNavIconPress={() => back()}/>
+          onNavIconPress={this._back}/>
         <Index />
         <BottomNavigation>
           <BottomNavigationIcon
@@ -83,6 +85,8 @@ const styles = {
     flex: 1,
 
     backgroundColor: Colors.white,
+
+    overflow: 'hidden',
   },
 
   // Account for ios heading height

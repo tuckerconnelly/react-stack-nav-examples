@@ -88,6 +88,8 @@ const styles = {
     flex: 1,
 
     backgroundColor: Colors.white,
+
+    overflow: 'hidden',
   },
 
   // Account for ios heading height
