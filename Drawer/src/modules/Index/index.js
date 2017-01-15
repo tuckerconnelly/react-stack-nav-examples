@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { View } from 'react-native-universal'
+import { View } from 'react-native'
 import { createOrchestrator } from 'react-stack-nav'
 
 import RouteFade from '../common/RouteFade'

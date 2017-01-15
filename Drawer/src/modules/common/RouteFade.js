@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { Animated, View } from 'react-native-universal'
+import { Animated, View } from 'react-native'
 
 class Route extends Component {
   state = { visible: this.props.active }

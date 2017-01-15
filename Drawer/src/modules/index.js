@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { View, Platform } from 'react-native-universal'
+import { View, Platform } from 'react-native'
 import {
   AppBar,
   NavigationDrawer,
