@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { Animated, Dimensions, View } from 'react-native-universal'
+import { Animated, Dimensions, View } from 'react-native'
 import { connect } from 'react-redux'
 import { Headline, FlatButton, Animations } from 'carbon-ui'
 import { createOrchestrator, pushTop } from 'react-stack-nav'
@@ -17,9 +17,9 @@ class RouteSlide extends Component {
       Animations.exit(this._activateAV, { toValue: 0 }).start()
     }
   }
-  
+
   _activateAV = new Animated.Value(this.props.active ? 1 : 0)
-  
+
   render() {
     return (
       <Animated.View
@@ -52,13 +52,13 @@ const styles = {
     right: 0,
     top: 0,
     bottom: 0,
-    
+
     backgroundColor: 'white',
   },
   // NOTE In a real app that needs to respond to orientation changes or window
   // size changes, you'd use matchMedia to re-render the component, to make sure
   // this translateX always matches the window width.
-  // 
+  //
   // Check out react-native-match-media for a react-native implementation, and
   // on web just use the global.matchMedia
   hidden: {

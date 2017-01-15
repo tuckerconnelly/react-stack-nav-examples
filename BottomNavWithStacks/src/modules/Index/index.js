@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { View } from 'react-native-universal'
+import { View } from 'react-native'
 import { createOrchestrator, replaceTop } from 'react-stack-nav'
 
 import RouteFade from '../common/RouteFade'
@@ -16,13 +16,13 @@ const VALID_FRAGMENTS = [
 
 class Index extends Component {
   componentWillMount() { this._indexRedirect() }
-  
+
   _indexRedirect() {
     if (this.props.routeFragment === '') {
       this.props.replaceTop({}, 'Favorites', 'favorites')
     }
   }
-  
+
   render() {
     const { routeFragment } = this.props
     return (
@@ -41,7 +41,7 @@ class Index extends Component {
 Index.propTypes = {
   // connect
   replaceTop: PropTypes.func,
-  
+
   // createOrchestrator
   routeFragment: PropTypes.string.isRequired,
 }
@@ -58,7 +58,7 @@ const styles = {
     position: 'relative',
 
     padding: 16,
-    
+
     flex: 1,
   },
 }

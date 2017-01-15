@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { View } from 'react-native-universal'
+import { View } from 'react-native'
 import { connect } from 'react-redux'
 import { pushTop, createOrchestrator } from 'react-stack-nav'
 import { Headline, FlatButton } from 'carbon-ui'
@@ -9,29 +9,29 @@ import OneTwoThreeStack from './OneTwoThreeStack'
 
 class RootPageComponent extends Component {
   state = { stackExists: true, stackActive: false }
-  
-  componentWillReceiveProps(next) {    
+
+  componentWillReceiveProps(next) {
     if (typeof next.routeFragment === 'string') {
       this.setState({ stackExists: true })
     }
     if (/^(one|two|three)$/.test(next.routeFragment)) {
       this.setState({ stackActive: true })
     }
-    
+
     if (next.routeFragment === '' && this.state.stackActive) {
       this.setState({ stackActive: false })
     }
-    
+
     if (next.routeFragment === undefined && this.state.stackExists) {
       // Wait for fade out animation
       setTimeout(() => this.setState({ stackExists: false }), 150)
     }
   }
-    
+
   render() {
     const { title, pushTop } = this.props
     const { stackExists, stackActive } = this.state
-        
+
     return (
       <View style={styles.base}>
         <View>
@@ -76,12 +76,11 @@ const styles = {
   base: {
     position: 'relative',
     flex: 1,
-    
+
     padding: 16,
   },
-  
+
   headline: {
     marginBottom: 16,
   },
 }
-

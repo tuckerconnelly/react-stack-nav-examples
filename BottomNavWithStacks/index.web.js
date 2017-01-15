@@ -1,7 +1,7 @@
 import 'babel-polyfill'
 
 import React from 'react'
-import { AppRegistry } from 'react-native-universal'
+import { AppRegistry } from 'react-native'
 import { WebStyles } from 'carbon-ui'
 
 import App from './src/index'

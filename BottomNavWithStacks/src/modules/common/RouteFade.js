@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { Animated, View } from 'react-native-universal'
+import { Animated, View } from 'react-native'
 
 class RouteFade extends Component {
   state = { visible: this.props.active }
@@ -53,14 +53,14 @@ const styles = {
     right: 0,
     top: 0,
     bottom: 0,
-    
+
     backgroundColor: 'white',
   },
 
   hidden: {
     right: undefined,
     bottom: undefined,
-    
+
     width: 0,
     height: 0,
   },
